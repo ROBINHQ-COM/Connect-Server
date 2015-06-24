@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1ba004d308806788c2e496fce20d0764",
+    "hash": "4d4dc7855d939181d17b7990c9a475c0",
     "packages": [
         {
             "name": "danielstjules/stringy",
@@ -1826,8 +1826,8 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "/Users/bwubs/Werk/Robin/SEOShop On Premise Shop Intergration/module",
-                "reference": "495ea1204b31ec62dc5587d927fcdebea9c17464"
+                "url": "git@github.com:megawubs/Robin-Connect.git",
+                "reference": "71f94b4d1ff1224e7a19ec18c9b7cce88ac596b4"
             },
             "require": {
                 "guzzlehttp/guzzle": "~6.0",
@@ -1861,7 +1861,7 @@
                 }
             ],
             "description": "This package is aimed to be a middle man between your SEOShop webshop and your ROBIN account",
-            "time": "2015-06-24 09:09:07"
+            "time": "2015-06-24 10:27:23"
         },
         {
             "name": "seoshop/seoshop-php",

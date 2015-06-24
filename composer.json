@@ -10,8 +10,8 @@
   "type": "project",
   "repositories": [
     {
-      "type": "vcs",
-      "url": "/Users/bwubs/Werk/Robin/SEOShop On Premise Shop Intergration/module"
+      "type": "git",
+      "url": "git@github.com:megawubs/Robin-Connect.git"
     }
   ],
   "require": {

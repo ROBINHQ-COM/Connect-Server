@@ -11,12 +11,17 @@
 |
 */
 
+use Illuminate\Support\Facades\Log;
 use Laravel\Lumen\Application;
+use Robin\Api\Robin;
+use Robin\Connect\SEOShop\SEOShop;
+
 
 $app->get(
     '/',
-    function (Application $app) {
-        return $app->welcome();
+    function (Application $app, SEOShop $SEOShop, Robin $robin) {
+        $hooksCount = $SEOShop->count("hooks");
+//        $hooks = $SEOShop->hooks()
     }
 );
 
@@ -28,7 +33,8 @@ $app->group(
     function (Application $app) {
         $app->post('customers', 'App\Http\Controllers\HooksController@customers');
         $app->post('orders', 'App\Http\Controllers\HooksController@orders');
-        $app->get('unregister', 'App\Http\Controllers\HooksController@unregister');
-        $app->get('register', 'App\Http\Controllers\HooksController@register');
     }
 );
+
+$app->get('hooks/unregister', 'App\Http\Controllers\HooksController@unregister');
+$app->get('hooks/register', 'App\Http\Controllers\HooksController@register');

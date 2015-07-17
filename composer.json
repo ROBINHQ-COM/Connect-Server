@@ -8,7 +8,7 @@
     "example",
     "intergration"
   ],
-  "license": "GPL-3.0",
+  "license": "MIT",
   "type": "project",
   "require": {
     "laravel/lumen-framework": "5.1.*",

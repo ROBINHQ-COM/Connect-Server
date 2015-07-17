@@ -1,6 +1,6 @@
 {
   "name": "robinhq/connect-server",
-  "description": "The Laravel Lumen Framework.",
+  "description": "Example integration with robinhq/connect based on laravel/lumen",
   "keywords": [
     "framework",
     "robinhq",

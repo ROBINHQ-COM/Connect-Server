@@ -150,7 +150,7 @@ class Connect
      */
     private function getOrdersHook()
     {
-        $urlOrders = "http://seoshop.megawubs.ultrahook.com/hooks/orders/";
+        $urlOrders = env("HOOK_ORDERS_URL");
         $orders = new Hook(
             $urlOrders, Format::JSON, Status::ACTIVE, ItemAction::ALL,
             ItemGroup::ORDERS, 'NL'
@@ -163,7 +163,7 @@ class Connect
      */
     private function getCustomersHook()
     {
-        $urlCustomers = "http://seoshop.megawubs.ultrahook.com/hooks/customers/";
+        $urlCustomers = env("HOOK_CUSTOMERS_URL");
         $customers = new Hook(
             $urlCustomers, Format::JSON, Status::ACTIVE, ItemAction::ALL, ItemGroup::CUSTOMERS, "NL"
         );

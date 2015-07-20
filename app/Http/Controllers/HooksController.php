@@ -64,8 +64,8 @@ class HooksController extends BaseController
         return new Response(['num_hooks_deleted' => $count], 200);
     }
 
-    public function register(Connect $connect)
+    public function register(\WebshopappApiClient $client, Connect $connect)
     {
-        return $connect->register();
+        return $connect->register($client);
     }
 }

@@ -55,7 +55,7 @@ class Connect
         $this->robinLogger = $robinLogger;
     }
 
-    public function register()
+    public function register(\WebshopappApiClient $client)
     {
         $hooks = [];
         $hooks[] = $client->webhooks->create($this->getOrdersHook());

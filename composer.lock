@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1f0094c5efee6afa95be5507b999fc70",
+    "hash": "e25597b42ec56ffde210a912c552ce06",
     "packages": [
         {
             "name": "danielstjules/stringy",
@@ -1783,16 +1783,16 @@
         },
         {
             "name": "robinhq/api",
-            "version": "0.1.0",
+            "version": "0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ROBINHQ-COM/Api.git",
-                "reference": "6eaca1d1475aa30152e1eff367601396397da63f"
+                "reference": "148585a3f5fb5161dbbd6600809237c790220dc8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ROBINHQ-COM/Api/zipball/6eaca1d1475aa30152e1eff367601396397da63f",
-                "reference": "6eaca1d1475aa30152e1eff367601396397da63f",
+                "url": "https://api.github.com/repos/ROBINHQ-COM/Api/zipball/148585a3f5fb5161dbbd6600809237c790220dc8",
+                "reference": "148585a3f5fb5161dbbd6600809237c790220dc8",
                 "shasum": ""
             },
             "require": {
@@ -1800,7 +1800,7 @@
                 "illuminate/support": "v5.1.2",
                 "monolog/monolog": "^1.14",
                 "nesbot/carbon": "1.19.0",
-                "robinhq/support": "0.1.0"
+                "robinhq/support": "~0.1.0"
             },
             "require-dev": {
                 "league/flysystem": "1.0.4",
@@ -1828,24 +1828,24 @@
                 }
             ],
             "description": "PHP wrapper for the ROBIN API",
-            "time": "2015-07-17 14:19:06"
+            "time": "2015-07-21 14:41:37"
         },
         {
             "name": "robinhq/connect",
-            "version": "0.1.1",
+            "version": "0.1.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ROBINHQ-COM/Connect.git",
-                "reference": "012ae0a00f7d62f5679a35352e141922dd1b537e"
+                "reference": "62bf4d0dd425a529ffaa216d570f79004f5d140b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ROBINHQ-COM/Connect/zipball/012ae0a00f7d62f5679a35352e141922dd1b537e",
-                "reference": "012ae0a00f7d62f5679a35352e141922dd1b537e",
+                "url": "https://api.github.com/repos/ROBINHQ-COM/Connect/zipball/62bf4d0dd425a529ffaa216d570f79004f5d140b",
+                "reference": "62bf4d0dd425a529ffaa216d570f79004f5d140b",
                 "shasum": ""
             },
             "require": {
-                "robinhq/api": "0.1.0",
+                "robinhq/api": "~0.1.0",
                 "seoshop/seoshop-php": "v1.7.0"
             },
             "require-dev": {
@@ -1875,20 +1875,20 @@
                 }
             ],
             "description": "Connect your webshop with ROBIN",
-            "time": "2015-07-21 07:52:00"
+            "time": "2015-07-21 14:44:15"
         },
         {
             "name": "robinhq/support",
-            "version": "0.1.0",
+            "version": "0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ROBINHQ-COM/Support.git",
-                "reference": "519700fecb40c979bb1b7187126263e712ee75b3"
+                "reference": "3b0d91b53f3b588abff86f2792cc5e8f09df1514"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ROBINHQ-COM/Support/zipball/519700fecb40c979bb1b7187126263e712ee75b3",
-                "reference": "519700fecb40c979bb1b7187126263e712ee75b3",
+                "url": "https://api.github.com/repos/ROBINHQ-COM/Support/zipball/3b0d91b53f3b588abff86f2792cc5e8f09df1514",
+                "reference": "3b0d91b53f3b588abff86f2792cc5e8f09df1514",
                 "shasum": ""
             },
             "type": "library",
@@ -1899,7 +1899,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL v3"
+                "GPL-3.0"
             ],
             "authors": [
                 {
@@ -1908,7 +1908,7 @@
                 }
             ],
             "description": "Support library for the ROBIN API packages",
-            "time": "2015-07-17 14:04:18"
+            "time": "2015-07-17 14:13:45"
         },
         {
             "name": "seoshop/seoshop-php",

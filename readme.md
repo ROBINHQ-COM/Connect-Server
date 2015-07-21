@@ -8,7 +8,7 @@ are able to test and develop locally and push to your own repo.
   
 ## Local Dev requirements
 
-To be able to test and develop locally, you need to have [virtual box][Virtual Box] and [vagrant][Vagrant] installed on 
+To be able to test and develop locally, you need to have [Virtual Box][virtual box] and [Vagrant][vagrant] installed on 
 your machine. See Vagrant as a manager for virtual box.
 
 Once you're done installing Virtual Box and Vagrant, head to the location you've installed this project in your 
@@ -39,8 +39,8 @@ be registered are `http://connect.mydomain.com/hooks/orders` and `http://connect
 
 ## Installing Dependencies
 
-In order to work properly, we need to install some dependencies. This is done through [composer][Composer] and 
-[npm][Npm]. When you have both of the dependencies managers installed, you can do the following form inside the 
+In order to work properly, we need to install some dependencies. This is done through [Composer][composer] and 
+[Npm][npm]. When you have both of the dependency managers installed, you can do the following form inside the 
 project root: 
 
 ```bash

@@ -5,7 +5,7 @@ namespace App\Robin;
 
 
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Response;
+use Illuminate\Http\Response;
 use Robin\Api\Collections\Customers;
 use Robin\Api\Collections\Orders;
 use Robin\Api\Exceptions\RobinSendFailedException;
@@ -21,6 +21,7 @@ use Robin\Connect\SEOShop\Hooks\ItemGroup;
 use Robin\Connect\SEOShop\Hooks\Status;
 use Robin\Connect\SEOShop\Models\Customer;
 use Robin\Connect\SEOShop\Models\Order;
+use Robin\Connect\SEOShop\SEOShop;
 
 class Connect
 {
@@ -40,29 +41,61 @@ class Connect
      * @var RobinLogger
      */
     private $robinLogger;
+    /**
+     * @var SEOShop
+     */
+    private $SEOShop;
 
     /**
      * @param Customer $customer
      * @param Order $order
      * @param Robin $robin
      * @param RobinLogger $robinLogger
+     * @param SEOShop $SEOShop
      */
-    public function __construct(Customer $customer, Order $order, Robin $robin, RobinLogger $robinLogger)
-    {
+    public function __construct(
+        Customer $customer,
+        Order $order,
+        Robin $robin,
+        RobinLogger $robinLogger,
+        SEOShop $SEOShop
+    ) {
         $this->customer = $customer;
         $this->robin = $robin;
         $this->order = $order;
         $this->robinLogger = $robinLogger;
+        $this->SEOShop = $SEOShop;
     }
 
-    public function register(\WebshopappApiClient $client)
+    public function on()
     {
-        $hooks = [];
-        $hooks[] = $client->webhooks->create($this->getOrdersHook());
-        $hooks[] = $client->webhooks->create($this->getCustomersHook());
+        $client = $this->SEOShop->getApi();
+        $hooks = $client->webhooks->get();
+        if (!$this->containsOrdersHook($hooks)) {
+            $hooks[] = $client->webhooks->create($this->getOrdersHook());
+        }
+        if (!$this->containsCustomersHook($hooks)) {
+            $hooks[] = $client->webhooks->create($this->getCustomersHook());
+        }
 
         $count = $client->webhooks->count();
-        return new Response(['num_hooks_created' => $count, 'hooks' => $hooks], 201);
+        return new Response(['num_hooks' => $count, 'hooks' => $hooks], 201);
+    }
+
+    public function off()
+    {
+        $client = $this->SEOShop->getApi();
+        $count = 0;
+        $hooks = collect($client->webhooks->get());
+
+        foreach ($hooks as $hook) {
+            if ($this->isRobinHook($hook)) {
+                $client->webhooks->delete($hook['id']);
+                $count++;
+            }
+        }
+
+        return new Response(['num_hooks' => $hooks->count() - $count], 200);
     }
 
     /**
@@ -111,6 +144,19 @@ class Connect
         );
 
         return $this->robin->orders($orders);
+    }
+
+    public function healthCheck()
+    {
+        try {
+            $hooks = collect($this->SEOShop->getApi()->webhooks->get());
+            $this->robin->orders(new Orders());
+            $this->robin->customers(new Customers());
+        } catch (\Exception $exception) {
+            return "Something is wrong! " . $exception->getMessage();
+        }
+
+        return "Everything is operating normally. You have " . $hooks->count() . " webhooks registered";
     }
 
     /**
@@ -168,6 +214,58 @@ class Connect
             $urlCustomers, Format::JSON, Status::ACTIVE, ItemAction::ALL, ItemGroup::CUSTOMERS, "NL"
         );
         return $customers->toArray();
+    }
+
+    public function getHooksCount()
+    {
+        return $this->SEOShop->getApi()->webhooks->count();
+    }
+
+    /**
+     * @param $hook
+     * @return bool
+     */
+    private function isRobinHook($hook)
+    {
+        return $this->isOrdersHook($hook) || $this->isCustomersHook($hook);
+    }
+
+    /**
+     * @param $hook
+     * @return bool
+     */
+    private function isOrdersHook($hook)
+    {
+        return $hook['address'] == env("HOOK_ORDERS_URL");
+    }
+
+    /**
+     * @param $hook
+     * @return bool
+     */
+    private function isCustomersHook($hook)
+    {
+        return $hook['address'] == env("HOOK_CUSTOMERS_URL");
+    }
+
+    private function containsOrdersHook($hooks)
+    {
+        foreach ($hooks as $hook) {
+            if ($this->isOrdersHook($hook)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private function containsCustomersHook($hooks)
+    {
+        foreach ($hooks as $hook) {
+            if ($this->isCustomersHook($hook)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

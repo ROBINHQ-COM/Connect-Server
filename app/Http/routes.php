@@ -11,6 +11,8 @@
 |
 */
 
+use App\Http\Controllers\HooksController;
+use App\Robin\Connect;
 use Illuminate\Support\Facades\Log;
 use Laravel\Lumen\Application;
 use Robin\Api\Robin;
@@ -19,9 +21,9 @@ use Robin\Connect\SEOShop\SEOShop;
 
 $app->get(
     '/',
-    function (Application $app, SEOShop $SEOShop, Robin $robin) {
-        $hooksCount = $SEOShop->count("hooks");
-//        $hooks = $SEOShop->hooks()
+    function (Connect $connect) {
+        $health = $connect->healthCheck();
+        return view('home', compact("health"));
     }
 );
 
@@ -31,10 +33,18 @@ $app->group(
         'middleware' => 'hooks'
     ],
     function (Application $app) {
-        $app->post('customers', 'App\Http\Controllers\HooksController@customers');
-        $app->post('orders', 'App\Http\Controllers\HooksController@orders');
+        $app->post('customers', HooksController::class . '@customers');
+        $app->post('orders', HooksController::class . '@orders');
     }
 );
 
-$app->get('hooks/unregister', 'App\Http\Controllers\HooksController@unregister');
-$app->get('hooks/register', 'App\Http\Controllers\HooksController@register');
+$app->group(
+    [
+        'prefix' => 'hooks'
+    ],
+    function (Application $app) {
+        $app->get('/', HooksController::class . '@index');
+        $app->get('on', ['as' => 'hooks.on', 'uses' => HooksController::class . '@on']);
+        $app->get('off', ['as' => 'hooks.off', 'uses' => HooksController::class . '@off']);
+    }
+);

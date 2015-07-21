@@ -34,6 +34,12 @@ use Robin\Connect\SEOShop\SEOShop;
 
 class HooksController extends BaseController
 {
+    public function index(Connect $connect)
+    {
+        $count = $connect->getHooksCount();
+
+        return response(200, "you have $count hooks registered");
+    }
 
     public function customers(Request $request, Connect $connect)
     {
@@ -51,21 +57,13 @@ class HooksController extends BaseController
         return new Response("", $response->getStatusCode());
     }
 
-    public function unregister(\WebshopappApiClient $client)
+    public function on(Connect $connect)
     {
-
-        $count = $client->webhooks->count();
-        $hooks = $client->webhooks->get();
-
-        foreach ($hooks as $hook) {
-            $client->webhooks->delete($hook['id']);
-        }
-
-        return new Response(['num_hooks_deleted' => $count], 200);
+        return $connect->on();
     }
 
-    public function register(\WebshopappApiClient $client, Connect $connect)
+    public function off(Connect $connect)
     {
-        return $connect->register($client);
+        return $connect->off();
     }
 }

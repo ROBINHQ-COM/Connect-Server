@@ -196,7 +196,7 @@ class Connect
      */
     private function getOrdersHook()
     {
-        $urlOrders = env("HOOK_ORDERS_URL");
+        $urlOrders = env("HOOK_BASE_URL") . '/hooks/orders';
         $orders = new Hook(
             $urlOrders, Format::JSON, Status::ACTIVE, ItemAction::ALL,
             ItemGroup::ORDERS, 'NL'
@@ -209,7 +209,7 @@ class Connect
      */
     private function getCustomersHook()
     {
-        $urlCustomers = env("HOOK_CUSTOMERS_URL");
+        $urlCustomers = env("HOOK_BASE_URL") . '/hooks/customers';
         $customers = new Hook(
             $urlCustomers, Format::JSON, Status::ACTIVE, ItemAction::ALL, ItemGroup::CUSTOMERS, "NL"
         );
@@ -236,7 +236,7 @@ class Connect
      */
     private function isOrdersHook($hook)
     {
-        return $hook['address'] == env("HOOK_ORDERS_URL");
+        return $hook['address'] == env("HOOK_BASE_URL") . '/hooks/orders';
     }
 
     /**
@@ -245,7 +245,7 @@ class Connect
      */
     private function isCustomersHook($hook)
     {
-        return $hook['address'] == env("HOOK_CUSTOMERS_URL");
+        return $hook['address'] == env("HOOK_BASE_URL") . '/hooks/customers';
     }
 
     private function containsOrdersHook($hooks)

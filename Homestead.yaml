@@ -16,7 +16,7 @@ folders:
       to: "/home/vagrant/site"
 
 sites:
-    - map: homestead.app
+    - map: robin-connect.app
       to: "/home/vagrant/site/public"
 
 databases:

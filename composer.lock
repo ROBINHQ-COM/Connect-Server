@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9f8e03c1d69944877bf60d95b3314fdf",
+    "hash": "1f0094c5efee6afa95be5507b999fc70",
     "packages": [
         {
             "name": "danielstjules/stringy",
@@ -1401,16 +1401,16 @@
         },
         {
             "name": "laravel/lumen-framework",
-            "version": "v5.1.2",
+            "version": "v5.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/lumen-framework.git",
-                "reference": "f5d6c5e9fd43abf2d3904607c95dc2864c761945"
+                "reference": "0ec7ffaf1e61a7fb15f24656d2d63ea7e216447d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/lumen-framework/zipball/f5d6c5e9fd43abf2d3904607c95dc2864c761945",
-                "reference": "f5d6c5e9fd43abf2d3904607c95dc2864c761945",
+                "url": "https://api.github.com/repos/laravel/lumen-framework/zipball/0ec7ffaf1e61a7fb15f24656d2d63ea7e216447d",
+                "reference": "0ec7ffaf1e61a7fb15f24656d2d63ea7e216447d",
                 "shasum": ""
             },
             "require": {
@@ -1482,7 +1482,7 @@
                 "laravel",
                 "lumen"
             ],
-            "time": "2015-07-12 02:19:42"
+            "time": "2015-07-19 18:25:14"
         },
         {
             "name": "monolog/monolog",
@@ -1832,16 +1832,16 @@
         },
         {
             "name": "robinhq/connect",
-            "version": "0.1.0",
+            "version": "0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ROBINHQ-COM/Connect.git",
-                "reference": "d5d89c2a9fc28496363284ced5f59fd200d0b0d9"
+                "reference": "012ae0a00f7d62f5679a35352e141922dd1b537e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ROBINHQ-COM/Connect/zipball/d5d89c2a9fc28496363284ced5f59fd200d0b0d9",
-                "reference": "d5d89c2a9fc28496363284ced5f59fd200d0b0d9",
+                "url": "https://api.github.com/repos/ROBINHQ-COM/Connect/zipball/012ae0a00f7d62f5679a35352e141922dd1b537e",
+                "reference": "012ae0a00f7d62f5679a35352e141922dd1b537e",
                 "shasum": ""
             },
             "require": {
@@ -1875,7 +1875,7 @@
                 }
             ],
             "description": "Connect your webshop with ROBIN",
-            "time": "2015-07-17 14:12:57"
+            "time": "2015-07-21 07:52:00"
         },
         {
             "name": "robinhq/support",

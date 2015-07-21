@@ -34,8 +34,8 @@ contact SEOShop. The same is for your ROBIN API credentials, contact ROBIN to ge
 Once you have the API key's, you can copy the `.env.example` file and rename it to .env. Fill in all the variables 
 values and last, but certainly not least add the url's to where you wan't SEOShop to send your hooks to by setting 
 the `HOOK_BASE_URL` variable. This is the url where your application index is located. From here, are the hooks urls 
-generated. So, when you install this application on the host `connect.mydomain.com` the SEOShop hooks that will be 
-registered are `connect.mydomain.com/hooks/orders` and `connect.mydomain.com/hooks/customers`.
+generated. So, when you install this application on the host `http://connect.mydomain.com` the SEOShop hooks that will
+be registered are `http://connect.mydomain.com/hooks/orders` and `http://connect.mydomain.com/hooks/customers`.
 
 ## Installing Dependencies
 
@@ -51,6 +51,11 @@ npm install
 
 After you have installed all of the dependencies, you can go to the development or production url and click on the 
 `Register Webhooks` button to register the webhooks for SEOShop.
+
+## Final Note
+
+- Make sure you have set your webshop intergration to API in your ROBIN settings.
+- SEOShop want's hook urls to have `http://` in front of them, even for a sub-domain.
 
 
 

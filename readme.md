@@ -36,8 +36,21 @@ values and last, but certainly not least add the url's to where you wan't SEOSho
 the `HOOK_BASE_URL` variable. This is the url where your application index is located. From here, are the hooks urls 
 generated. So, when you install this application on the host `connect.mydomain.com` the SEOShop hooks that will be 
 registered are `connect.mydomain.com/hooks/orders` and `connect.mydomain.com/hooks/customers`.
- 
- 
+
+## Installing Dependencies
+
+In order to work properly, we need to install some dependencies. This is done through [composer]:[Composer] and 
+[npn]:[Npn]. When you have both of the dependencies managers installed, you can do the following form inside the 
+project root: 
+
+```bash
+composer install
+cd public/js
+npm install
+```
+
+After you have installed all of the dependencies, you can go to the development or production url and click on the 
+`Register Webhooks` button to register the webhooks for SEOShop.
 
 
 
@@ -46,3 +59,5 @@ registered are `connect.mydomain.com/hooks/orders` and `connect.mydomain.com/hoo
 
 [virtual box]: https://www.virtualbox.org/
 [vagrant]: https://www.vagrantup.com/
+[composer]: https://getcomposer.org/
+[npm]: https://www.npmjs.com

@@ -25,8 +25,8 @@ file. Before we can view the application, we first have to set some environment 
  
  
 ## Setting .env variables
-Robin Connect-Server requires a few api key's and other settings. You can see these settings when you open .env
-.example. The first few lines are Lumen's environment settings. Below the line `Robin Connect-Server Settings` You 
+Robin Connect-Server requires a few api key's and other settings. You can see these settings when you open `.env
+.example`. The first few lines are Lumen's environment settings. Below the line `Robin Connect-Server Settings` You 
 can see the required variables this project needs in order to run. When you don't provide one of these, the project 
 will be unable to run properly and you'll most likely encounter errors. To get you SEOShop API credentials, please 
 contact SEOShop. The same is for your ROBIN API credentials, contact ROBIN to get them.
@@ -39,8 +39,8 @@ be registered are `http://connect.mydomain.com/hooks/orders` and `http://connect
 
 ## Installing Dependencies
 
-In order to work properly, we need to install some dependencies. This is done through [composer]:[Composer] and 
-[npn]:[Npn]. When you have both of the dependencies managers installed, you can do the following form inside the 
+In order to work properly, we need to install some dependencies. This is done through [composer][Composer] and 
+[npn][Npn]. When you have both of the dependencies managers installed, you can do the following form inside the 
 project root: 
 
 ```bash

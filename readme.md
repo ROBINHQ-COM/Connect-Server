@@ -40,7 +40,7 @@ be registered are `http://connect.mydomain.com/hooks/orders` and `http://connect
 ## Installing Dependencies
 
 In order to work properly, we need to install some dependencies. This is done through [composer][Composer] and 
-[npn][Npn]. When you have both of the dependencies managers installed, you can do the following form inside the 
+[npm][Npm]. When you have both of the dependencies managers installed, you can do the following form inside the 
 project root: 
 
 ```bash
